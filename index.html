@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Point Equity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333; }
+        nav { background: #001F3F; color: #FFF; position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; display: flex; justify-content: center; padding: 1em; }
+        nav li { margin: 0 1em; }
+        nav a { color: #FFD700; text-decoration: none; }
+        .hero { background: url('images/dallas-skyline.jpg') no-repeat center/cover; height: 60vh; display: flex; align-items: center; justify-content: center; color: #FFF; text-align: center; animation: fadeIn 2s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .section { padding: 2em; max-width: 1200px; margin: auto; animation: fadeIn 1s; }
+        .stats { display: flex; justify-content: space-around; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 3em; color: #FFD700; }
+        footer { background: #001F3F; color: #FFF; text-align: center; padding: 1em; }
+    </style>
+    <script>
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-num');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                let count = 0;
+                const interval = setInterval(() => {
+                    count += Math.ceil(target / 50);
+                    if (count >= target) { count = target; clearInterval(interval); }
+                    stat.innerText = count;
+                }, 20);
+            });
+        }
+        window.onload = animateStats;
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="questionnaire.html">Questionnaire</a></li>
+            <li><a href="https://royalpointequity.invportal.com/login" target="_blank">Portal</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <div>
+            <h1>Unlock Value-Add Multifamily Investments in the Sun Belt</h1>
+            <p>Texas-based firm with offices in Dallas and Houston.</p>
+            <a href="questionnaire.html" style="background: #FFD700; color: #001F3F; padding: 1em; text-decoration: none;">Get Started</a>
+        </div>
+    </div>
+    <section class="section">
+        <h2>Our Achievements</h2>
+        <div class="stats">
+            <div class="stat"><span class="stat-num" data-target="29">0</span><p>Properties</p></div>
+            <div class="stat"><span class="stat-num" data-target="4016">0</span><p>Units</p></div>
+            <div class="stat"><span class="stat-num" data-target="400">0</span><p>Million+ Value</p></div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Royal Point Equity. Dallas & Houston, TX.</p>
+    </footer>
+</body>
+</html>
